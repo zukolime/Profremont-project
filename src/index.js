@@ -4,6 +4,7 @@ import { timer } from "./modules/timer";
 
 modal(".header-modal", ".open-btn-call", ".header-modal__close");
 modal(".services-modal", ".service-button", ".services-modal__close");
+
 slider(
   ".benefits-inner--splide",
   ".benefits-arrows",
@@ -11,6 +12,7 @@ slider(
   ".benefits__arrow--right",
   3
 );
+
 slider(
   ".services-block--splide",
   ".services-arrows",
@@ -18,4 +20,5 @@ slider(
   ".services__arrow--right",
   2
 );
-timer();
+
+timer("30 April 2025");
