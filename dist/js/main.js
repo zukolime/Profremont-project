@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__.modal)(\".header-modal\", \".open-btn-call\", \".header-modal__close\");\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__.slider)();\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n\n\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__.modal)(\".header-modal\", \".open-btn-call\", \".header-modal__close\");\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__.modal)(\".services-modal\", \".service-button\", \".services-modal__close\");\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__.slider)(\n  \".benefits-inner--splide\",\n  \".benefits-arrows\",\n  \".benefits__arrow--left\",\n  \".benefits__arrow--right\",\n  3\n);\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_1__.slider)(\n  \".services-block--splide\",\n  \".services-arrows\",\n  \".services__arrow--left\",\n  \".services__arrow--right\",\n  2\n);\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__.timer)();\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -46,7 +46,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   slider: () => (/* binding */ slider)\n/* harmony export */ });\n/* harmony import */ var _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @splidejs/splide */ \"../node_modules/@splidejs/splide/dist/js/splide.esm.js\");\n\r\n\r\nconst slider = () => {\r\n  const arrows = document.querySelector(\".benefits-arrows\");\r\n\r\n  const splide = new _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\".benefits-inner--splide\", {\r\n    pagination: false,\r\n    arrows: false,\r\n    type: \"loop\",\r\n    perPage: 3,\r\n    gap: 10,\r\n    breakpoints: {\r\n      576: {\r\n        perPage: 1,\r\n        gap: 0,\r\n      },\r\n    },\r\n  }).mount();\r\n\r\n  arrows.addEventListener(\"click\", (e) => {\r\n    if (e.target.closest(\".benefits__arrow--left\")) {\r\n      splide.go(\"-1\");\r\n    }\r\n    if (e.target.closest(\".benefits__arrow--right\")) {\r\n      splide.go(\"+1\");\r\n    }\r\n  });\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/slider.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   slider: () => (/* binding */ slider)\n/* harmony export */ });\n/* harmony import */ var _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @splidejs/splide */ \"../node_modules/@splidejs/splide/dist/js/splide.esm.js\");\n\r\n\r\nconst slider = (\r\n  splideClass,\r\n  arrowsBlock,\r\n  leftArrow,\r\n  rightArrow,\r\n  slidesNumbers\r\n) => {\r\n  const arrows = document.querySelector(arrowsBlock);\r\n\r\n  const splide = new _splidejs_splide__WEBPACK_IMPORTED_MODULE_0__[\"default\"](splideClass, {\r\n    pagination: false,\r\n    arrows: false,\r\n    type: \"loop\",\r\n    perPage: slidesNumbers,\r\n    gap: 10,\r\n    breakpoints: {\r\n      576: {\r\n        perPage: 1,\r\n        gap: 0,\r\n      },\r\n    },\r\n  }).mount();\r\n\r\n  arrows.addEventListener(\"click\", (e) => {\r\n    if (e.target.closest(leftArrow)) {\r\n      splide.go(\"-1\");\r\n    }\r\n    if (e.target.closest(rightArrow)) {\r\n      splide.go(\"+1\");\r\n    }\r\n  });\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/slider.js?");
+
+/***/ }),
+
+/***/ "./modules/timer.js":
+/*!**************************!*\
+  !*** ./modules/timer.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   timer: () => (/* binding */ timer)\n/* harmony export */ });\nconst timer = () => {\r\n  console.log(\"timer\");\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/timer.js?");
 
 /***/ })
 

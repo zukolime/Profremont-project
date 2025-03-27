@@ -1,13 +1,19 @@
 import Splide from "@splidejs/splide";
 
-export const slider = () => {
-  const arrows = document.querySelector(".benefits-arrows");
+export const slider = (
+  splideClass,
+  arrowsBlock,
+  leftArrow,
+  rightArrow,
+  slidesNumbers
+) => {
+  const arrows = document.querySelector(arrowsBlock);
 
-  const splide = new Splide(".benefits-inner--splide", {
+  const splide = new Splide(splideClass, {
     pagination: false,
     arrows: false,
     type: "loop",
-    perPage: 3,
+    perPage: slidesNumbers,
     gap: 10,
     breakpoints: {
       576: {
@@ -18,10 +24,10 @@ export const slider = () => {
   }).mount();
 
   arrows.addEventListener("click", (e) => {
-    if (e.target.closest(".benefits__arrow--left")) {
+    if (e.target.closest(leftArrow)) {
       splide.go("-1");
     }
-    if (e.target.closest(".benefits__arrow--right")) {
+    if (e.target.closest(rightArrow)) {
       splide.go("+1");
     }
   });
