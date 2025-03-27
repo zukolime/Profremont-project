@@ -2,6 +2,7 @@ import { modal } from "./modules/modal";
 import { slider } from "./modules/slider";
 import { timer } from "./modules/timer";
 import { formValidation } from "./modules/formValidation";
+import { sendForm } from "./modules/sendForm";
 
 modal(".header-modal", ".open-btn-call", ".header-modal__close");
 modal(".services-modal", ".service-button", ".services-modal__close");
@@ -23,4 +24,9 @@ slider(
 );
 
 timer("30 April 2025");
-formValidation();
+
+formValidation("[name=action-form]");
+formValidation("[name=action-form2]");
+
+sendForm("[name=action-form]");
+sendForm("[name=action-form2]");

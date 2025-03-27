@@ -1,8 +1,8 @@
-export const formValidation = () => {
-  const form = document.querySelector("[name=action-form]");
+export const formValidation = (selectorForm) => {
+  const form = document.querySelector(selectorForm);
 
   const nameRegExp = /^[а-яА-ЯёЁa-zA-Z\s]+$/;
-  const phoneRegExp = /^\+?\d{0,16}$/;
+  const phoneRegExp = /^\+?\d{1,16}$/;
 
   const isValid = (regExp, input) => regExp.test(input.value.trim());
 

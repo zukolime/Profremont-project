@@ -1,4 +1,4 @@
-const animate = ({ timing, draw, duration }) => {
+export const animate = ({ timing, draw, duration }) => {
   const start = performance.now();
 
   requestAnimationFrame(function animate(time) {
@@ -14,5 +14,3 @@ const animate = ({ timing, draw, duration }) => {
     }
   });
 };
-
-export { animate };
