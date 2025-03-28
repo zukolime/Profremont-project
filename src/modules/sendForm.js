@@ -1,4 +1,6 @@
 import { animate } from "./helpers";
+import { validate } from "./helpers";
+import { hideMessage } from "./helpers";
 
 export const sendForm = (formSelector) => {
   const form = document.querySelector(formSelector);
@@ -19,16 +21,6 @@ export const sendForm = (formSelector) => {
       },
     });
     return await res.json();
-  };
-
-  const validate = (inputs) => {
-    let success = true;
-    inputs.forEach((input) => {
-      if (input.type !== "hidden" && !input.classList.contains("success")) {
-        success = false;
-      }
-    });
-    return success;
   };
 
   const statusBlockStyle = () => {
@@ -73,12 +65,6 @@ export const sendForm = (formSelector) => {
     });
   };
 
-  const hideMessage = () => {
-    setTimeout(() => {
-      statusBlock.textContent = "";
-    }, 3000);
-  };
-
   const submitForm = () => {
     const formElements = form.querySelectorAll("input");
     const formData = new FormData(form);
@@ -102,7 +88,7 @@ export const sendForm = (formSelector) => {
             input.classList.remove("success");
           });
           isAnimating = false;
-          hideMessage();
+          hideMessage(statusBlock);
         })
         .catch((error) => {
           statusBlock.textContent = errorText;

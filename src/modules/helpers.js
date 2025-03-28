@@ -14,3 +14,19 @@ export const animate = ({ timing, draw, duration }) => {
     }
   });
 };
+
+export const validate = (inputs) => {
+  let success = true;
+  inputs.forEach((input) => {
+    if (input.type !== "hidden" && !input.classList.contains("success")) {
+      success = false;
+    }
+  });
+  return success;
+};
+
+export const hideMessage = (elem) => {
+  setTimeout(() => {
+    elem.textContent = "";
+  }, 3000);
+};
