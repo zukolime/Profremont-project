@@ -4,6 +4,7 @@ import { timer } from "./modules/timer";
 import { formValidation } from "./modules/formValidation";
 import { sendForm } from "./modules/sendForm";
 import { modalImg } from "./modules/modalImg";
+import { showScrollBtn } from "./modules/showScrollBtn";
 
 modal(".header-modal", ".open-btn-call", ".header-modal__close");
 modal(".services-modal", ".service-button", ".services-modal__close");
@@ -33,3 +34,4 @@ sendForm("[name=action-form]");
 sendForm("[name=action-form2]");
 
 modalImg();
+showScrollBtn();
