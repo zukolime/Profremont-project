@@ -2,6 +2,8 @@ export const modalImg = () => {
   const sertificates = document.querySelectorAll(".sertificate-document");
 
   sertificates.forEach((link) => {
+    link.classList.add("document-inner");
+
     link.addEventListener("click", (e) => {
       e.preventDefault();
 
