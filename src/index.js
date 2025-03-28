@@ -3,6 +3,7 @@ import { slider } from "./modules/slider";
 import { timer } from "./modules/timer";
 import { formValidation } from "./modules/formValidation";
 import { sendForm } from "./modules/sendForm";
+import { modalImg } from "./modules/modalImg";
 
 modal(".header-modal", ".open-btn-call", ".header-modal__close");
 modal(".services-modal", ".service-button", ".services-modal__close");
@@ -30,3 +31,5 @@ formValidation("[name=action-form2]");
 
 sendForm("[name=action-form]");
 sendForm("[name=action-form2]");
+
+modalImg();

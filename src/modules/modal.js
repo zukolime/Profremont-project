@@ -5,10 +5,12 @@ export const modal = (modalClass, openBtn, closeBtn) => {
   const showModal = () => {
     overlay.style.display = "block";
     modal.style.display = "block";
+    document.body.style.overflow = "hidden";
   };
   const closeModal = () => {
     overlay.style.display = "";
     modal.style.display = "";
+    document.body.style.overflow = "";
   };
 
   const toggleModal = (e) => {
