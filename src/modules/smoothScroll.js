@@ -10,7 +10,7 @@ export const smoothScroll = () => {
         return 1 - Math.sin(Math.acos(timeFraction));
       },
       draw(progress) {
-        let startPosition = document.documentElement.scrollTop;
+        const startPosition = document.documentElement.scrollTop;
         document.documentElement.scrollTop =
           startPosition - progress * startPosition;
       },
