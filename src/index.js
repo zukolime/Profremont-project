@@ -38,8 +38,25 @@ timer("30 April 2025");
 formValidation("[name=action-form]");
 formValidation("[name=action-form2]");
 
-sendForm("[name=action-form]");
-sendForm("[name=action-form2]");
+sendForm({
+  formSelector: "[name=action-form]",
+  additionalElem: [
+    {
+      type: "input",
+      id: "calc-total",
+    },
+  ],
+});
+
+sendForm({
+  formSelector: "[name=action-form2]",
+  additionalElem: [
+    {
+      type: "input",
+      id: "calc-total",
+    },
+  ],
+});
 
 modalImg();
 showScrollBtn();

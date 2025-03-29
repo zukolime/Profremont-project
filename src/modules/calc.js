@@ -5,6 +5,10 @@ export const calc = (price = 10000) => {
   const calcSquare = document.getElementById("calc-input"); // площадь - Обязтально
   const total = document.getElementById("calc-total"); // итого
 
+  if (!calcBlock) {
+    return;
+  }
+
   const countCalc = () => {
     const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
     const materialTypeValue =
