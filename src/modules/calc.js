@@ -1,4 +1,4 @@
-export const calc = (price = 100) => {
+export const calc = (price = 10000) => {
   const calcBlock = document.getElementById("calc"); // блок калькулятора
   const calcType = document.getElementById("calc-type"); // балкон/лоджия - Обязтально
   const materialType = document.getElementById("calc-type-material"); // тип остекленения
@@ -13,15 +13,17 @@ export const calc = (price = 100) => {
 
     let totalValue;
 
-    if (materialTypeValue) {
-      totalValue = price * calcTypeValue * calcSquareValue * materialTypeValue;
-    } else if (!materialTypeValue) {
-      totalValue = price * calcTypeValue * calcSquareValue;
+    if (calcTypeValue && calcSquareValue) {
+      if (materialTypeValue) {
+        totalValue =
+          price * calcTypeValue * calcSquareValue * materialTypeValue;
+      } else if (!materialTypeValue) {
+        totalValue = price * calcTypeValue * calcSquareValue;
+      }
+      total.value = totalValue;
     } else {
-      totalValue = 0;
+      total.value = "";
     }
-
-    total.value = totalValue;
 
     // animateResult(currentTotal, totalValue);
   };

@@ -45,4 +45,4 @@ modalImg();
 showScrollBtn();
 smoothScroll();
 validCalc();
-calc(100);
+calc(10000);
