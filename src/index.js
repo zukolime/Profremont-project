@@ -6,6 +6,8 @@ import { sendForm } from "./modules/sendForm";
 import { modalImg } from "./modules/modalImg";
 import { showScrollBtn } from "./modules/showScrollBtn";
 import { smoothScroll } from "./modules/smoothScroll";
+import { validCalc } from "./modules/validCalc";
+import { calc } from "./modules/calc";
 
 modal(".header-modal", ".overlay", ".open-btn-call", ".header-modal__close");
 modal(
@@ -42,3 +44,5 @@ sendForm("[name=action-form2]");
 modalImg();
 showScrollBtn();
 smoothScroll();
+validCalc();
+calc(100);

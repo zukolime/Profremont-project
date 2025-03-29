@@ -18,7 +18,6 @@ export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
   };
 
   const toggleModal = (e) => {
-    e.preventDefault();
     if (e.target.closest(openBtn)) showModal();
     else if (
       isModalOpen &&
