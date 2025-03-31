@@ -30,3 +30,6 @@ export const hideMessage = (elem) => {
     elem.textContent = "";
   }, 3000);
 };
+
+export const removeNonDigits = (input) =>
+  (input.value = input.value.replace(/\D/g, ""));
