@@ -22,7 +22,8 @@ slider(
   ".benefits-arrows",
   ".benefits__arrow--left",
   ".benefits__arrow--right",
-  3
+  3,
+  ""
 );
 
 slider(
@@ -30,7 +31,8 @@ slider(
   ".services-arrows",
   ".services__arrow--left",
   ".services__arrow--right",
-  2
+  2,
+  "600px"
 );
 
 timer("30 April 2025");

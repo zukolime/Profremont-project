@@ -5,7 +5,8 @@ export const slider = (
   arrowsBlock,
   leftArrow,
   rightArrow,
-  slidesNumbers
+  slidesNumbers,
+  fixedWidth
 ) => {
   const arrows = document.querySelector(arrowsBlock);
 
@@ -16,8 +17,14 @@ export const slider = (
     perPage: slidesNumbers,
     gap: 10,
     breakpoints: {
+      1200: {
+        fixedWidth: fixedWidth,
+        gap: 0,
+      },
+
       576: {
         perPage: 1,
+        fixedWidth: "",
         gap: 0,
       },
     },
