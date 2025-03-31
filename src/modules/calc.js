@@ -1,9 +1,11 @@
+import { removeNonDigits } from "./helpers";
+
 export const calc = (price = 10000) => {
-  const calcBlock = document.getElementById("calc"); // блок калькулятора
-  const calcType = document.getElementById("calc-type"); // балкон/лоджия - Обязтально
-  const materialType = document.getElementById("calc-type-material"); // тип остекленения
-  const calcSquare = document.getElementById("calc-input"); // площадь - Обязтально
-  const total = document.getElementById("calc-total"); // итого
+  const calcBlock = document.getElementById("calc");
+  const calcType = document.getElementById("calc-type");
+  const materialType = document.getElementById("calc-type-material");
+  const calcSquare = document.getElementById("calc-input");
+  const total = document.getElementById("calc-total");
 
   if (!calcBlock) {
     return;
@@ -15,21 +17,16 @@ export const calc = (price = 10000) => {
       +materialType.options[materialType.selectedIndex].value;
     const calcSquareValue = calcSquare.value;
 
-    let totalValue;
-
-    if (calcTypeValue && calcSquareValue) {
-      if (materialTypeValue) {
-        totalValue =
-          price * calcTypeValue * calcSquareValue * materialTypeValue;
-      } else if (!materialTypeValue) {
-        totalValue = price * calcTypeValue * calcSquareValue;
-      }
-      total.value = totalValue;
-    } else {
+    if (!calcTypeValue || !calcSquareValue) {
       total.value = "";
+      return;
     }
 
-    // animateResult(currentTotal, totalValue);
+    if (materialTypeValue) {
+      total.value = price * calcTypeValue * calcSquareValue * materialTypeValue;
+    } else {
+      total.value = price * calcTypeValue * calcSquareValue;
+    }
   };
 
   calcBlock.addEventListener("input", (e) => {
@@ -38,6 +35,7 @@ export const calc = (price = 10000) => {
       e.target === calcSquare ||
       e.target === materialType
     ) {
+      removeNonDigits(calcSquare);
       countCalc();
     }
   });
