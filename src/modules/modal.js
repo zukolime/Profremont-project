@@ -66,12 +66,14 @@ export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
   };
 
   const toggleModal = (e) => {
-    e.preventDefault();
-    if (e.target.closest(openBtn)) isMobile ? showMobileModal() : showModal();
-    else if (
+    if (e.target.closest(openBtn)) {
+      e.preventDefault();
+      isMobile ? showMobileModal() : showModal();
+    } else if (
       isModalOpen &&
       (e.target === overlay || e.target.closest(closeBtn))
     ) {
+      e.preventDefault();
       isMobile ? closeMobileModal() : closeModal();
     }
   };

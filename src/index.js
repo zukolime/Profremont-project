@@ -6,7 +6,6 @@ import { sendForm } from "./modules/sendForm";
 import { modalImg } from "./modules/modalImg";
 import { showScrollBtn } from "./modules/showScrollBtn";
 import { smoothScroll } from "./modules/smoothScroll";
-import { validCalc } from "./modules/validCalc";
 import { calc } from "./modules/calc";
 import { showComments } from "./modules/showComments";
 
@@ -64,6 +63,5 @@ sendForm({
 modalImg();
 showScrollBtn();
 smoothScroll();
-validCalc();
 calc(10000);
 showComments();

@@ -1,45 +1,84 @@
+import { createSpinner } from "./spinner";
+import { removeSpinner } from "./spinner";
+
 export const showComments = () => {
   const commentsContainer = document.querySelector(".comments-container");
+  const spinner = createSpinner(commentsContainer);
 
   let comments = [];
 
-  // const spinner = document.createElement("div");
-  // spinner.className = "spinner";
-  // spinner.style.display = "flex";
-  // spinner.style.justifyContent = "center";
-  // spinner.style.marginLeft = "-190px";
-  // spinner.innerHTML = `<img src="images/spinner.svg" alt="spinner" />`;
-  // commentsContainer.append(spinner);
+  const showError = (message) => {
+    commentsContainer.textContent = message;
+    commentsContainer.style.textAlign = "center";
+    commentsContainer.style.color = "red";
+    commentsContainer.style.marginLeft = "4px";
+  };
 
-  const getComments = async () => {
+  const getComments = async (url) => {
     try {
-      const res = await fetch("./comments.json");
+      const res = await fetch(url);
       const data = await res.json();
       return data.comments;
     } catch (error) {
-      console.log(`Error: ${error}`);
+      showError("Ошибка при загрузке комментариев");
+      console.log(error.message);
     }
   };
 
   const createComment = (commentsData) => {
     commentsContainer.innerHTML = "";
 
-    commentsData.forEach((comment, index) => {
-      // console.log(comment);
-      // console.log(index);
+    const visibleComments = commentsData.slice(0, 3);
 
+    visibleComments.forEach((comment, index) => {
       const commentBox = document.createElement("div");
-      commentBox.className = "review-margin-bottom row comment-item";
 
       const imageUrl = comment.image
         ? `images/users/${comment.image}`
         : "https://placedog.net/120/120";
 
       const isEven = (index) => index % 2 === 0;
+      const isThirdComment = (index) => index % 3 === 2;
 
-      commentBox.innerHTML = `<div class="${
-        isEven(comment.id) ? "col-xs-3 col-sm-2" : "col-xs-9 col-sm-9"
-      }">
+      commentBox.className = "review-margin-bottom row comment-item";
+
+      if (isEven(index)) {
+        commentBox.innerHTML = `<div class="col-xs-3 col-sm-2">
+          <div class="review-user">
+            <img
+              src="${imageUrl}"
+              alt="${comment.author}"
+              class="img-responsive avatar"
+            />
+          </div>
+        </div>
+        <div class="col-xs-9 col-sm-9">
+          <div
+            class="review-inner ${
+              isThirdComment(index) ? "review-orange" : "review-green"
+            } review-green review-arrow review-arrow-left"
+          >
+            <p class="text-normal">${comment.author}</p>
+            <p>
+              ${comment.comment}
+            </p>
+          </div>
+        </div>`;
+        commentsContainer.append(commentBox);
+      } else {
+        commentBox.innerHTML = `<div class="col-xs-9 col-sm-9">
+          <div
+            class="review-inner ${
+              isThirdComment(index) ? "review-orange" : "review-gray"
+            } review-arrow review-arrow-right"
+          >
+            <p class="text-normal">${comment.author}</p>
+            <p>
+              ${comment.comment}
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-3 col-sm-2">
           <div class="review-user">
             <img
               src="${imageUrl}"
@@ -48,32 +87,32 @@ export const showComments = () => {
             />
           </div>
         </div>
-        <div class="${
-          isEven(comment.id) ? "col-xs-9 col-sm-9" : " col-xs-3 col-sm-2"
-        }">
-          <div
-            class="review-inner review-green review-arrow "${
-              isEven(comment.id) ? "review-arrow-left" : "review-arrow-right"
-            }"
-          >
-            <p class="text-normal">${comment.author}</p>
-            <p>
-              ${comment.comment}
-            </p>
-          </div>
-       </div>`;
+        </div>`;
+        commentsContainer.append(commentBox);
+      }
     });
   };
 
-  // const render = async () => {
-  //   const comments = await getComments();
-  //   createComment(comments);
-  // };
+  const updateComments = () => {
+    if (comments.length > 0) {
+      const nextComment = comments.shift();
+      comments.push(nextComment);
+      createComment(comments);
+    }
+  };
 
-  // render();
+  const render = async () => {
+    try {
+      comments = await getComments("./comments.json");
+      createComment(comments);
+      removeSpinner(spinner);
+      setInterval(updateComments, 20000);
+    } catch (error) {
+      showError("Ошибка при загрузке комментариев");
+      removeSpinner(spinner);
+      console.log(error.message);
+    }
+  };
 
-  getComments().then((data) => {
-    console.log(data);
-    createComment(data);
-  });
+  render();
 };
