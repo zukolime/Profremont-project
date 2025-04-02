@@ -12,7 +12,7 @@ export const formValidation = (selectorForm) => {
   };
 
   form.addEventListener(
-    "blur",
+    "input",
     (e) => {
       const target = e.target;
       if (target.matches("input[placeholder='ваше имя']")) {

@@ -7,6 +7,7 @@ import { modalImg } from "./modules/modalImg";
 import { showScrollBtn } from "./modules/showScrollBtn";
 import { smoothScroll } from "./modules/smoothScroll";
 import { calc } from "./modules/calc";
+import { showComments } from "./modules/showComments";
 
 modal(".header-modal", ".overlay", ".open-btn-call", ".header-modal__close");
 modal(
@@ -63,3 +64,4 @@ modalImg();
 showScrollBtn();
 smoothScroll();
 calc(10000);
+showComments();
