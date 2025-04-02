@@ -25,10 +25,10 @@ export const validate = (inputs) => {
   return success;
 };
 
-export const hideMessage = (elem) => {
+export const hideMessage = (elem, ms) => {
   setTimeout(() => {
     elem.textContent = "";
-  }, 3000);
+  }, ms);
 };
 
 export const removeNonDigits = (input) =>

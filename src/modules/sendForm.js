@@ -59,7 +59,7 @@ export const sendForm = ({ formSelector, additionalElem = [] }) => {
             input.classList.remove("success");
           });
           animationState.isAnimating = false;
-          hideMessage(statusBlock);
+          hideMessage(statusBlock, 3000);
         })
         .catch((error) => {
           statusBlockStyle(
@@ -74,11 +74,19 @@ export const sendForm = ({ formSelector, additionalElem = [] }) => {
     } else {
       statusBlockStyle(form, statusBlock, "Данные не валидны", "red");
       formElements.forEach((input) => {
-        if (input.classList.contains("success")) {
-          input.style.border = "2px solid green";
-        } else input.style.border = "2px solid red";
+        input.classList.contains("success")
+          ? (input.style.border = "2px solid green")
+          : (input.style.border = "2px solid red");
       });
+
       animationState.isAnimating = false;
+      formElements.forEach((input) => {
+        input.addEventListener("input", () => {
+          if (validate(formElements)) {
+            hideMessage(statusBlock, "");
+          }
+        });
+      });
     }
   };
 
