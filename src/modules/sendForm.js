@@ -74,7 +74,9 @@ export const sendForm = ({ formSelector, additionalElem = [] }) => {
     } else {
       statusBlockStyle(form, statusBlock, "Данные не валидны", "red");
       formElements.forEach((input) => {
-        input.style.border = "2px solid red";
+        if (input.classList.contains("success")) {
+          input.style.border = "2px solid green";
+        } else input.style.border = "2px solid red";
       });
       animationState.isAnimating = false;
     }
