@@ -1,7 +1,10 @@
 import { animate } from "./helpers";
+import { scrollIntoView } from "seamless-scroll-polyfill";
 
 export const smoothScroll = () => {
   const arrow = document.querySelector(".smooth-scroll");
+  const btnScroll = document.querySelector(".utp-button");
+  const targetBlock = document.getElementById("order_1");
 
   const animateSmoothScroll = () => {
     animate({
@@ -18,4 +21,12 @@ export const smoothScroll = () => {
   };
 
   arrow.addEventListener("click", animateSmoothScroll);
+
+  btnScroll.addEventListener("click", (e) => {
+    e.preventDefault();
+    scrollIntoView(targetBlock, {
+      behavior: "smooth",
+      block: "start",
+    });
+  });
 };

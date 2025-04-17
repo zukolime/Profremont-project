@@ -12,7 +12,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@splidejs/splide": "^4.1.4"
+    "@splidejs/splide": "^4.1.4",
+    "seamless-scroll-polyfill": "^2.3.4"
   },
   "devDependencies": {
     "webpack": "^5.58.1",
