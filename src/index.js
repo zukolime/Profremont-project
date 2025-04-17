@@ -35,7 +35,7 @@ slider(
   "600px"
 );
 
-timer("30 April 2025");
+timer("30 December 2025");
 
 formValidation("[name=action-form]");
 formValidation("[name=action-form2]");
