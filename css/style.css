@@ -1249,6 +1249,25 @@ p.services-image_mobile {
   }
   .navbar-toggle {
     display: block;
+    transition: all 0.3s ease;
+  }
+  .navbar-toggle .icon-bar {
+    display: block;
+    transition: all 0.3s ease;
+  }
+  .navbar-toggle.active .icon-bar:nth-child(2) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .navbar-toggle.active .icon-bar:nth-child(3) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active .icon-bar:nth-child(4) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  #navbar-collapse.active {
+    display: block;
   }
   .navbar-collapse,
   .navbar-collapse.collapsing {
@@ -1260,11 +1279,11 @@ p.services-image_mobile {
     border-width: 0 0 1px;
   }
   .navbar-collapse.collapse {
-    display: none !important;
+    display: none;
     border-top: 1px solid transparent;
   }
   .navbar-nav {
-    float: none !important;
+    float: none;
     margin-top: 7.5px;
     margin-bottom: 20px;
   }

@@ -8,6 +8,7 @@ import { showScrollBtn } from "./modules/showScrollBtn";
 import { smoothScroll } from "./modules/smoothScroll";
 import { calc } from "./modules/calc";
 import { showComments } from "./modules/showComments";
+import { showMobileMenu } from "./modules/showMobileMenu";
 
 modal(".header-modal", ".overlay", ".open-btn-call", ".header-modal__close");
 modal(
@@ -65,3 +66,4 @@ showScrollBtn();
 smoothScroll();
 calc(10000);
 showComments();
+showMobileMenu();
