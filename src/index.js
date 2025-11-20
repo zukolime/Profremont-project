@@ -1,62 +1,43 @@
-import { modal } from "./modules/modal";
-import { slider } from "./modules/slider";
-import { timer } from "./modules/timer";
-import { formValidation } from "./modules/formValidation";
-import { sendForm } from "./modules/sendForm";
-import { modalImg } from "./modules/modalImg";
-import { showScrollBtn } from "./modules/showScrollBtn";
-import { smoothScroll } from "./modules/smoothScroll";
-import { calc } from "./modules/calc";
-import { showComments } from "./modules/showComments";
-import { showMobileMenu } from "./modules/showMobileMenu";
+import { modal } from './modules/modal';
+import { slider } from './modules/slider';
+import { timer } from './modules/timer';
+import { formValidation } from './modules/formValidation';
+import { sendForm } from './modules/sendForm';
+import { modalImg } from './modules/modalImg';
+import { showScrollBtn } from './modules/showScrollBtn';
+import { smoothScroll } from './modules/smoothScroll';
+import { calc } from './modules/calc';
+import { showComments } from './modules/showComments';
+import { showMobileMenu } from './modules/showMobileMenu';
 
-modal(".header-modal", ".overlay", ".open-btn-call", ".header-modal__close");
-modal(
-  ".services-modal",
-  ".overlay",
-  ".service-button",
-  ".services-modal__close"
-);
+modal('.header-modal', '.overlay', '.open-btn-call', '.header-modal__close');
+modal('.services-modal', '.overlay', '.service-button', '.services-modal__close');
 
-slider(
-  ".benefits-inner--splide",
-  ".benefits-arrows",
-  ".benefits__arrow--left",
-  ".benefits__arrow--right",
-  3,
-  ""
-);
+slider('.benefits-inner--splide', '.benefits-arrows', '.benefits__arrow--left', '.benefits__arrow--right', 3, '');
 
-slider(
-  ".services-block--splide",
-  ".services-arrows",
-  ".services__arrow--left",
-  ".services__arrow--right",
-  2,
-  "600px"
-);
+slider('.services-block--splide', '.services-arrows', '.services__arrow--left', '.services__arrow--right', 2, '600px');
 
-timer("30 December 2025");
+timer('30 December 2026');
 
-formValidation("[name=action-form]");
-formValidation("[name=action-form2]");
+formValidation('[name=action-form]');
+formValidation('[name=action-form2]');
 
 sendForm({
-  formSelector: "[name=action-form]",
+  formSelector: '[name=action-form]',
   additionalElem: [
     {
-      type: "input",
-      id: "calc-total",
+      type: 'input',
+      id: 'calc-total',
     },
   ],
 });
 
 sendForm({
-  formSelector: "[name=action-form2]",
+  formSelector: '[name=action-form2]',
   additionalElem: [
     {
-      type: "input",
-      id: "calc-total",
+      type: 'input',
+      id: 'calc-total',
     },
   ],
 });
