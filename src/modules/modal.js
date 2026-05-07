@@ -13,7 +13,7 @@ export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
     animate({
-      duration: 150,
+      duration: 400,
       timing(timeFraction) {
         return 1 - (1 - timeFraction) * (1 - timeFraction);
       },
@@ -31,7 +31,7 @@ export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
 
   const closeModal = () => {
     animate({
-      duration: 250,
+      duration: 400,
       timing(timeFraction) {
         return 1 - (1 - timeFraction) * (1 - timeFraction);
       },
