@@ -1,26 +1,35 @@
-import { modal } from './modules/modal';
-import { slider } from './modules/slider';
-import { timer } from './modules/timer';
-import { formValidation } from './modules/formValidation';
-import { sendForm } from './modules/sendForm';
-import { modalImg } from './modules/modalImg';
-import { showScrollBtn } from './modules/showScrollBtn';
-import { smoothScroll } from './modules/smoothScroll';
 import { calc } from './modules/calc';
+import { formValidation } from './modules/formValidation';
+import { modal } from './modules/modal';
+import { modalImg } from './modules/modalImg';
+import { sendForm } from './modules/sendForm';
 import { showComments } from './modules/showComments';
 import { showMobileMenu } from './modules/showMobileMenu';
+import { showScrollBtn } from './modules/showScrollBtn';
+import { slider } from './modules/slider';
+import { smoothScroll } from './modules/smoothScroll';
+import { timer } from './modules/timer';
 
 modal('.header-modal', '.overlay', '.open-btn-call', '.header-modal__close');
 modal('.services-modal', '.overlay', '.service-button', '.services-modal__close');
 
 slider('.benefits-inner--splide', '.benefits-arrows', '.benefits__arrow--left', '.benefits__arrow--right', 3, '');
-
 slider('.services-block--splide', '.services-arrows', '.services__arrow--left', '.services__arrow--right', 2, '600px');
 
 timer('30 December 2026');
 
+formValidation('[name=callback-form]');
+formValidation('[name=application-form]');
 formValidation('[name=action-form]');
 formValidation('[name=action-form2]');
+
+sendForm({
+  formSelector: '[name=callback-form]',
+});
+
+sendForm({
+  formSelector: '[name=application-form]',
+});
 
 sendForm({
   formSelector: '[name=action-form]',

@@ -1,8 +1,8 @@
 export const timer = (deadline) => {
-  const timerDays = document.querySelectorAll(".count_1 span");
-  const timerHours = document.querySelectorAll(".count_2 span");
-  const timerMinutes = document.querySelectorAll(".count_3 span");
-  const timerSeconds = document.querySelectorAll(".count_4 span");
+  const timerDays = document.querySelectorAll('.count_1 span');
+  const timerHours = document.querySelectorAll('.count_2 span');
+  const timerMinutes = document.querySelectorAll('.count_3 span');
+  const timerSeconds = document.querySelectorAll('.count_4 span');
 
   let idInterval;
 
@@ -25,14 +25,14 @@ export const timer = (deadline) => {
   };
 
   const timerOnZeroes = () => {
-    updateElements(timerDays, "00");
-    updateElements(timerHours, "00");
-    updateElements(timerMinutes, "00");
-    updateElements(timerSeconds, "00");
+    updateElements(timerDays, '00');
+    updateElements(timerHours, '00');
+    updateElements(timerMinutes, '00');
+    updateElements(timerSeconds, '00');
   };
 
   const addZeroBefore = (value) => {
-    return value < 10 ? "0" + value : value;
+    return value < 10 ? '0' + value : value;
   };
 
   const updateClock = () => {

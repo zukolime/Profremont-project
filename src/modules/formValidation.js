@@ -1,5 +1,5 @@
-export const formValidation = (selectorForm) => {
-  const form = document.querySelector(selectorForm);
+export const formValidation = (formSelector) => {
+  const form = document.querySelector(formSelector);
 
   const nameRegExp = /^[а-яА-ЯёЁa-zA-Z\s]+$/;
   const phoneRegExp = /^\+?\d{1,16}$/;
@@ -7,21 +7,22 @@ export const formValidation = (selectorForm) => {
   const isValid = (regExp, input) => regExp.test(input.value.trim());
 
   const setFieldState = (input, isValid) => {
-    input.style.border = isValid ? "2px solid green" : "2px solid red";
-    input.classList.toggle("success", isValid);
+    input.style.border = isValid ? '2px solid green' : '2px solid red';
+    input.classList.toggle('success', isValid);
   };
 
-  form.addEventListener(
-    "input",
-    (e) => {
-      const target = e.target;
-      if (target.matches("input[placeholder='ваше имя']")) {
+  document.addEventListener('input', (e) => {
+    const target = e.target;
+
+    const parentForm = target.closest(formSelector);
+
+    if (parentForm) {
+      if (target.matches('[name=username]')) {
         setFieldState(target, isValid(nameRegExp, target));
       }
-      if (target.matches("input[placeholder='ваш телефон']")) {
+      if (target.matches('[name=phone]')) {
         setFieldState(target, isValid(phoneRegExp, target));
       }
-    },
-    true
-  );
+    }
+  });
 };

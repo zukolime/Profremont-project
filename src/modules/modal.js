@@ -1,4 +1,5 @@
-import { animate } from "./helpers";
+import { formValidation } from './formValidation';
+import { animate } from './helpers';
 
 export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
   const overlay = document.querySelector(overlayClass);
@@ -9,8 +10,7 @@ export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
   let isModalOpen = false;
 
   const showModal = () => {
-    const scrollbarWidth =
-      window.innerWidth - document.documentElement.clientWidth;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
     animate({
       duration: 150,
@@ -19,9 +19,9 @@ export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
       },
       draw(progress) {
         modal.style.top = `${progress * 50}%`;
-        overlay.style.display = "block";
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
+        overlay.style.display = 'block';
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
         document.body.style.paddingRight = `${scrollbarWidth}px`;
         overlay.style.opacity = progress;
         isModalOpen = true;
@@ -39,11 +39,11 @@ export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
         overlay.style.opacity = 1 - progress;
         modal.style.top = `${progress * -50}%`;
         if (progress === 1) {
-          overlay.style.display = "";
-          modal.style.display = "";
-          modal.style.top = "";
-          document.body.style.overflow = "";
-          document.body.style.paddingRight = "";
+          overlay.style.display = '';
+          modal.style.display = '';
+          modal.style.top = '';
+          document.body.style.overflow = '';
+          document.body.style.paddingRight = '';
           isModalOpen = false;
         }
       },
@@ -51,17 +51,17 @@ export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
   };
 
   const showMobileModal = () => {
-    overlay.style.display = "block";
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden";
+    overlay.style.display = 'block';
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
     isModalOpen = true;
   };
 
   const closeMobileModal = () => {
-    overlay.style.display = "";
-    modal.style.display = "";
-    document.body.style.overflow = "";
-    modal.style.top = "";
+    overlay.style.display = '';
+    modal.style.display = '';
+    document.body.style.overflow = '';
+    modal.style.top = '';
     isModalOpen = false;
   };
 
@@ -69,18 +69,15 @@ export const modal = (modalClass, overlayClass, openBtn, closeBtn) => {
     if (e.target.closest(openBtn)) {
       e.preventDefault();
       isMobile ? showMobileModal() : showModal();
-    } else if (
-      isModalOpen &&
-      (e.target === overlay || e.target.closest(closeBtn))
-    ) {
+    } else if (isModalOpen && (e.target === overlay || e.target.closest(closeBtn))) {
       e.preventDefault();
       isMobile ? closeMobileModal() : closeModal();
     }
   };
 
-  document.addEventListener("click", toggleModal);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && isModalOpen) {
+  document.addEventListener('click', toggleModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isModalOpen) {
       closeModal();
     }
   });
