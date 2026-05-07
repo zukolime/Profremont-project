@@ -58,7 +58,7 @@ export const modalImg = () => {
 
       modalImg.addEventListener('click', () => {
         animate({
-          duration: 250,
+          duration: 500,
           timing(timeFraction) {
             return 1 - (1 - timeFraction) * (1 - timeFraction);
           },
@@ -66,7 +66,7 @@ export const modalImg = () => {
             const reverseProgress = 1 - progress;
             modalImg.style.backgroundColor = `rgba(0, 0, 0, ${0.9 * reverseProgress})`;
             modalImg.style.opacity = reverseProgress;
-            img.style.transform = `scale(${0.7 + 0.3 * reverseProgress})`;
+            img.style.transform = `scale(${1 * reverseProgress})`;
           },
         });
 
